@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-4xl sm:text-5xl md:text-6xl font-bold text-apple-gray-900 mb-4"
             >
-              Hi, I'm <span className="bg-gradient-to-r from-apple-blue-light to-apple-teal-light bg-clip-text text-transparent">Aditya</span>
+               <span className="bg-gradient-to-r from-apple-blue-light to-apple-teal-light bg-clip-text text-transparent">Aditya Manoj Krishna</span>
             </motion.h1>
             
             <motion.p 
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-xl text-apple-gray-700 mb-8 max-w-lg"
             >
-              A passionate computer science student at Worcester Polytechnic Institute with a focus on AI, machine learning, and software development.
+              A Computer Science Student at WPI.
             </motion.p>
             
             <motion.div 
@@ -75,6 +75,7 @@ const Hero: React.FC = () => {
           </motion.div>
           
           {/* Profile Image */}
+          {/*
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -82,20 +83,19 @@ const Hero: React.FC = () => {
             className="flex justify-center lg:justify-end"
           >
             <div className="relative">
-              {/* Decorative elements */}
+
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-apple-blue-light/10 rounded-full blur-xl"></div>
               <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-apple-teal-light/10 rounded-full blur-xl"></div>
-              
-              {/* Image container with glass effect */}
-              <div className="relative z-10 w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden glass-effect p-1">
+              <div className="relative z-10 w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden p-1">
                 <img 
-                  src="/content/profile_photo.jpg" 
+                  src="/profile_photo.jpg" 
                   alt="Aditya" 
                   className="w-full h-full object-cover rounded-xl"
                 />
               </div>
             </div>
-          </motion.div>
+          </motion.div> 
+          */}
         </div>
         
         {/* Scroll indicator */}

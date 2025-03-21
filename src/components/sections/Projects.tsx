@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiCode, FiGithub, FiExternalLink } from 'react-icons/fi';
+import { FiCode, FiGithub, FiExternalLink } from 'react-icons/fi'; // Import individual icons
 import githubLinks from '../../data/githubLinks';
 
 interface Project {
@@ -156,13 +156,14 @@ const Projects: React.FC = () => {
                         key={tag} 
                         className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-apple-gray-100 text-apple-gray-700"
                       >
-                        <FiCode size={12} className="mr-1" />
+                        <span className="mr-1">
+                          <FiCode size={12} />
+                        </span>
                         {tag}
                       </span>
                     ))}
                   </div>
                   
-                  {/* Project Links - Now more visible at the bottom of the card */}
                   <div className="flex gap-3 mt-auto">
                     {project.github && (
                       <a 
@@ -172,7 +173,9 @@ const Projects: React.FC = () => {
                         className="flex items-center px-4 py-2 bg-apple-blue-light text-white rounded-lg hover:bg-apple-blue-dark transition-colors"
                         aria-label="View GitHub Repository"
                       >
-                        <FiGithub size={18} className="mr-2" />
+                        <span className="mr-2">
+                          <FiGithub size={18} />
+                        </span>
                         GitHub
                       </a>
                     )}
@@ -184,7 +187,9 @@ const Projects: React.FC = () => {
                         className="flex items-center px-4 py-2 bg-apple-gray-200 text-apple-gray-800 rounded-lg hover:bg-apple-gray-300 transition-colors"
                         aria-label="View Live Demo"
                       >
-                        <FiExternalLink size={18} className="mr-2" />
+                        <span className="mr-2">
+                          <FiExternalLink size={18} />
+                        </span>
                         Demo
                       </a>
                     )}
@@ -195,26 +200,6 @@ const Projects: React.FC = () => {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <p className="text-apple-gray-600 mb-6">
-            These are just a few of my recent projects. Check out my GitHub for more!
-          </p>
-          <a 
-            href="https://github.com/Bleedingmetal" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 bg-white text-apple-gray-800 font-medium rounded-lg shadow-md hover:shadow-lg border border-apple-gray-200 transition-all"
-          >
-            <FiGithub className="mr-2" />
-            View More on GitHub
-          </a>
-        </motion.div>
       </div>
     </section>
   );

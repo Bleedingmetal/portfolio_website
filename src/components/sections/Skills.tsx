@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { FiCode, FiGithub, FiExternalLink } from 'react-icons/fi'; // Import individual icons
 
 interface Skill {
   name: string;
@@ -163,6 +164,29 @@ const Skills: React.FC = () => {
             </motion.div>
           </div>
         )}
+
+        <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  className="text-center mt-16"
+                >
+                  <p className="text-apple-gray-600 mb-6">
+                    These are just a few of my recent projects. Check out my GitHub for more!
+                  </p>
+                  <a 
+                    href="https://github.com/Bleedingmetal" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-white text-apple-gray-800 font-medium rounded-lg shadow-md hover:shadow-lg border border-apple-gray-200 transition-all"
+                  >
+                    <span className="mr-2">
+                      <FiGithub />
+                    </span>
+                    View More on GitHub
+                  </a>
+                </motion.div>
       </div>
     </section>
   );

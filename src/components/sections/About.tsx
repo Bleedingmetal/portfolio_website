@@ -11,6 +11,8 @@ const About: React.FC = () => {
     gpa: "3.8",
   };
 
+  
+
   // Languages from resume
   const languages = ["Hindi", "Gujarati", "Tamil", "Telugu"];
 
@@ -49,23 +51,27 @@ const About: React.FC = () => {
               
               <div className="space-y-4 text-apple-gray-700">
                 <p>
-                  I'm a Computer Science student at Worcester Polytechnic Institute with a passion for artificial intelligence, machine learning, and software development. My academic journey has equipped me with a strong foundation in both theoretical concepts and practical applications.
+                  I'm a driven Computer Science student at Worcester Polytechnic Institute with a passion for a Software Engineering, artificial intelligence, and machine learning. My academic journey has equipped me with a strong foundation in both theoretical concepts and practical applications.
                 </p>
                 
                 <p>
-                  My experience spans from developing AI-powered chatbots and building vector databases to creating backend systems for monitoring applications. I enjoy solving complex problems and turning innovative ideas into functional software solutions.
+                  My experience spans from developing AI chatbots and building vector databases to creating backend systems for monitoring applications but my interests are ever evolving, I enjoy solving complex technical problems and turning innovative ideas into impactful software solutions.
                 </p>
                 
                 <p>
-                  When I'm not coding, I'm exploring new technologies, contributing to open-source projects, or expanding my knowledge in areas like neural networks and natural language processing. I believe in continuous learning and pushing the boundaries of what's possible with technology.
+                I believe in continuous learning and pushing the boundaries of what's possible with technology.
                 </p>
+                {/*}
+                <p>
+                  When I'm not studying I like to watch Formula one, go Swimming or workout with my friends.
+                </p>   Come back to this and chekc it out coz it might be fire but rn its not (gonna ask dad lowk)*/}
               </div>
             </div>
           </motion.div>
 
           {/* Education & Languages */}
           <div className="space-y-6">
-            {/* Education */}
+            {/* Education  but only WPI*/}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -96,6 +102,8 @@ const About: React.FC = () => {
                 </div>
               </div>
             </motion.div>
+
+
 
             {/* Honors */}
             <motion.div
