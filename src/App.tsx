@@ -12,10 +12,10 @@ function App() {
     <ThemeProvider>
       <Layout>
         <Hero />
-        <About />
         <Experience />
-        <Skills />
+        <About />
         <Projects />
+        <Skills />
       </Layout>
     </ThemeProvider>
   );

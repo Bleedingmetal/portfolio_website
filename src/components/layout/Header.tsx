@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import * as FiIcons from 'react-icons/fi';
-import { useTheme } from '../../context/ThemeContext';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiX, FiMenu } from 'react-icons/fi';
+
+interface NavLink {
+  name: string;
+  href: string;
+}
 
 const Header: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
     { name: 'Experience', href: '#experience' },
-    { name: 'Skills', href: '#skills' },
+    { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Skills', href: '#skills' },
   ];
 
   useEffect(() => {
@@ -25,25 +27,27 @@ const Header: React.FC = () => {
       }
     };
 
-    document.addEventListener('scroll', handleScroll);
-    return () => {
-      document.removeEventListener('scroll', handleScroll);
-    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'py-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-sm' : 'py-4 bg-transparent'
-    }`}>
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'py-3 bg-white/80 backdrop-blur-lg shadow-md' 
+          : 'py-5 bg-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <motion.a
             href="#home"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="text-xl font-bold text-gray-900 dark:text-white"
+            className="text-xl font-bold text-apple-gray-900"
           >
             Aditya
           </motion.a>
@@ -57,82 +61,59 @@ const Header: React.FC = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="text-apple-gray-800 hover:text-apple-blue-light transition-colors"
               >
                 {link.name}
               </motion.a>
             ))}
-
-            {/* Theme Toggle */}
-            <motion.button
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: navLinks.length * 0.1 }}
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {theme === 'dark' 
-                ? React.createElement(FiIcons.FiSun, { size: 18 }) 
-                : React.createElement(FiIcons.FiMoon, { size: 18 })}
-            </motion.button>
           </nav>
 
-          {/* Mobile Navigation Controls */}
-          <div className="flex items-center md:hidden">
-            {/* Theme Toggle */}
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
             <motion.button
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors mr-2"
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {theme === 'dark' 
-                ? React.createElement(FiIcons.FiSun, { size: 18 }) 
-                : React.createElement(FiIcons.FiMoon, { size: 18 })}
-            </motion.button>
-            
-            <motion.button
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-full bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
+              className="text-apple-gray-800 focus:outline-none"
               aria-label="Toggle mobile menu"
             >
               {mobileMenuOpen 
-                ? React.createElement(FiIcons.FiX, { size: 20 }) 
-                : React.createElement(FiIcons.FiMenu, { size: 20 })}
+                ? <FiX size={20} /> 
+                : <FiMenu size={20} />}
             </motion.button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
+      {/* Mobile Menu */}
+      <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden mt-4 py-4 bg-white dark:bg-slate-900 rounded-lg shadow-lg"
+            className="md:hidden bg-white shadow-lg overflow-hidden"
           >
-            <div className="flex flex-col space-y-4 px-4">
+            <div className="px-4 py-2">
               {navLinks.map((link) => (
-                <a
+                <motion.a
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="block py-3 text-apple-gray-800 hover:text-apple-blue-light"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </motion.a>
               ))}
             </div>
           </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </header>
   );
 };

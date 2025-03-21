@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import * as FiIcons from 'react-icons/fi';
+import { FiBook, FiAward, FiGlobe } from 'react-icons/fi';
 
 const About: React.FC = () => {
   // Education data from resume
@@ -18,8 +18,8 @@ const About: React.FC = () => {
     <section id="about" className="py-20 relative overflow-hidden">
       {/* Gradient background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-gradient-to-tr from-purple-100/30 to-transparent dark:from-purple-900/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-bl from-blue-100/30 to-transparent dark:from-blue-900/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-gradient-to-tr from-apple-gray-200/30 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-bl from-apple-gray-200/30 to-transparent rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,11 +43,11 @@ const About: React.FC = () => {
             viewport={{ once: true }}
           >
             <div className="glass-effect rounded-2xl p-6 md:p-8 shadow-xl h-full">
-              <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+              <h3 className="text-2xl font-semibold text-apple-gray-900 mb-4">
                 My Journey
               </h3>
               
-              <div className="space-y-4 text-gray-600 dark:text-gray-300">
+              <div className="space-y-4 text-apple-gray-700">
                 <p>
                   I'm a Computer Science student at Worcester Polytechnic Institute with a passion for artificial intelligence, machine learning, and software development. My academic journey has equipped me with a strong foundation in both theoretical concepts and practical applications.
                 </p>
@@ -74,22 +74,22 @@ const About: React.FC = () => {
               className="glass-effect rounded-2xl p-6 md:p-8 shadow-xl"
             >
               <div className="flex items-center mb-4">
-                <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-xl mr-4">
-                  {React.createElement(FiIcons.FiBook, { size: 24, className: "text-purple-600 dark:text-purple-400" })}
+                <div className="p-3 bg-apple-blue-light/10 rounded-xl mr-4">
+                  <FiBook size={24} className="text-apple-blue-light" />
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
+                <h3 className="text-2xl font-semibold text-apple-gray-900">
                   Education
                 </h3>
               </div>
               
-              <div className="pl-2 border-l-2 border-purple-200 dark:border-purple-800/30 ml-6">
-                <h4 className="text-lg font-medium text-gray-800 dark:text-gray-200">
+              <div className="pl-2 border-l-2 border-apple-gray-300 ml-6">
+                <h4 className="text-lg font-medium text-apple-gray-900">
                   {education.degree}
                 </h4>
-                <p className="text-purple-600 dark:text-purple-400 font-medium">
+                <p className="text-apple-gray-700 font-medium">
                   {education.school}
                 </p>
-                <div className="flex flex-col sm:flex-row sm:items-center text-sm text-gray-500 dark:text-gray-400 mt-1 gap-2 sm:gap-3">
+                <div className="flex flex-col sm:flex-row sm:items-center text-sm text-apple-gray-600 mt-1 gap-2 sm:gap-3">
                   <span>{education.period}</span>
                   <span className="hidden sm:block">•</span>
                   <span>GPA: {education.gpa}</span>
@@ -106,25 +106,25 @@ const About: React.FC = () => {
               className="glass-effect rounded-2xl p-6 md:p-8 shadow-xl"
             >
               <div className="flex items-center mb-4">
-                <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl mr-4">
-                  {React.createElement(FiIcons.FiAward, { size: 24, className: "text-blue-600 dark:text-blue-400" })}
+                <div className="p-3 bg-apple-blue-light/10 rounded-xl mr-4">
+                  <FiAward size={24} className="text-apple-blue-light" />
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
+                <h3 className="text-2xl font-semibold text-apple-gray-900">
                   Honors
                 </h3>
               </div>
               
-              <ul className="space-y-3 text-gray-600 dark:text-gray-300">
+              <ul className="space-y-3 text-apple-gray-700">
                 <li className="flex items-start">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 mr-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-apple-blue-light mt-2 mr-2 flex-shrink-0"></div>
                   <span>WPI Dean's List Academic Excellence Award (Fall 2023, Spring 2024)</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 mr-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-apple-blue-light mt-2 mr-2 flex-shrink-0"></div>
                   <span>WPI Presidential Scholarship</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 mr-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-apple-blue-light mt-2 mr-2 flex-shrink-0"></div>
                   <span>Second Place and Youngest CEO - TiE Young Entrepreneurs Competition</span>
                 </li>
               </ul>
@@ -139,10 +139,10 @@ const About: React.FC = () => {
               className="glass-effect rounded-2xl p-6 md:p-8 shadow-xl"
             >
               <div className="flex items-center mb-4">
-                <div className="p-3 bg-green-100 dark:bg-green-900/30 rounded-xl mr-4">
-                  {React.createElement(FiIcons.FiGlobe, { size: 24, className: "text-green-600 dark:text-green-400" })}
+                <div className="p-3 bg-apple-blue-light/10 rounded-xl mr-4">
+                  <FiGlobe size={24} className="text-apple-blue-light" />
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
+                <h3 className="text-2xl font-semibold text-apple-gray-900">
                   Languages
                 </h3>
               </div>
@@ -151,7 +151,7 @@ const About: React.FC = () => {
                 {languages.map((language) => (
                   <span 
                     key={language}
-                    className="px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-sm font-medium"
+                    className="px-3 py-1 rounded-full bg-apple-gray-200 text-apple-gray-800 text-sm font-medium"
                   >
                     {language}
                   </span>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiExternalLink, FiCode } from 'react-icons/fi';
+import { FiCode, FiGithub, FiExternalLink } from 'react-icons/fi';
+import githubLinks from '../../data/githubLinks';
 
 interface Project {
   title: string;
@@ -10,16 +11,41 @@ interface Project {
   github?: string;
   demo?: string;
   period: string;
-  category: 'ai' | 'web' | 'simulation';
+  category: 'ai' | 'web' | 'simulation' | 'internship' | 'competition';
 }
 
 const projectsData: Project[] = [
+  {
+    title: 'AI Chatbot & Vector Database',
+    description: 'Developed an enterprise-grade chatbot at Cognida.ai using LangChain and LlamaIndex. Built a robust ingestion pipeline for document processing and created a vector database for efficient knowledge retrieval.',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    tags: ['LangChain', 'LlamaIndex', 'Vector Database', 'NLP', 'Python'],
+    period: 'May 2024 - August 2024',
+    category: 'internship'
+  },
+  {
+    title: 'Ex-Inmate Monitoring System',
+    description: 'Developed backend software at Talitrix for monitoring ex-inmates, integrating real-time data collection and alert systems. Implemented secure API endpoints and database management for sensitive information.',
+    image: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    tags: ['Backend Development', 'API Design', 'Database Management', 'Security'],
+    period: 'June 2022 - August 2022',
+    category: 'internship'
+  },
+  {
+    title: 'MIT Battlecode 2025',
+    description: 'Developed AI-controlled units in Java, optimizing decision-making for sieging, defense, and resource management. Implemented A* pathfinding with dynamic adjustments for obstacles and enemy positions. Designed paint relay and tower-building logic to control map influence and economy.',
+    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    tags: ['Java', 'AI', 'Pathfinding', 'Game Strategy', 'Optimization'],
+    github: githubLinks["battlecode"],
+    period: 'January 2025',
+    category: 'competition'
+  },
   {
     title: 'Formula 1 AI Chat-Bot',
     description: 'Developed an AI-powered F1 chatbot using React, Next.js, Tailwind CSS, and ChromaDB for real-time race strategy insights. Built a RAG system with Node.js, Express, and OpenAI embeddings for context-aware retrieval of F1 radio messages.',
     image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     tags: ['React', 'Next.js', 'Tailwind CSS', 'ChromaDB', 'OpenAI', 'RAG'],
-    github: 'https://github.com/Bleedingmetal',
+    github: githubLinks["formula1-chatbot"],
     period: 'November 2024',
     category: 'ai'
   },
@@ -28,7 +54,7 @@ const projectsData: Project[] = [
     description: 'Developed Python code with Matplotlib, NumPy, and Pandas to simulate buoyancy effects based on temperature, volume, and density. Created as part of the IBDP Extended Essay.',
     image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     tags: ['Python', 'Matplotlib', 'NumPy', 'Pandas', 'Physics Simulation'],
-    github: 'https://github.com/Bleedingmetal',
+    github: githubLinks["buoyancy-simulator"],
     period: 'October 2022 - December 2022',
     category: 'simulation'
   }
@@ -39,7 +65,9 @@ const Projects: React.FC = () => {
 
   const categories = [
     { id: 'all', name: 'All Projects' },
+    { id: 'internship', name: 'Internship Projects' },
     { id: 'ai', name: 'AI & ML' },
+    { id: 'competition', name: 'Competitions' },
     { id: 'web', name: 'Web Development' },
     { id: 'simulation', name: 'Simulation' },
   ];
@@ -52,8 +80,8 @@ const Projects: React.FC = () => {
     <section id="projects" className="py-20 relative overflow-hidden">
       {/* Gradient background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-gradient-to-tr from-purple-100/30 to-transparent dark:from-purple-900/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-bl from-blue-100/30 to-transparent dark:from-blue-900/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-gradient-to-tr from-apple-blue-light/10 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-bl from-apple-blue-light/10 to-transparent rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,8 +109,8 @@ const Projects: React.FC = () => {
               onClick={() => setFilter(category.id)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === category.id
-                  ? 'bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-md'
-                  : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700'
+                  ? 'bg-gradient-to-r from-apple-blue-light to-apple-teal-light text-white shadow-md'
+                  : 'bg-white text-apple-gray-700 hover:bg-apple-gray-100'
               }`}
             >
               {category.name}
@@ -108,56 +136,58 @@ const Projects: React.FC = () => {
                     alt={project.title} 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <div className="flex gap-3">
-                      {project.github && (
-                        <a 
-                          href={project.github} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
-                          aria-label="View GitHub Repository"
-                        >
-                          <FiGithub size={18} />
-                        </a>
-                      )}
-                      {project.demo && (
-                        <a 
-                          href={project.demo} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
-                          aria-label="View Live Demo"
-                        >
-                          <FiExternalLink size={18} />
-                        </a>
-                      )}
-                    </div>
-                  </div>
                 </div>
                 
                 <div className="p-6 flex-grow">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+                    <h3 className="text-xl font-semibold text-apple-gray-800">
                       {project.title}
                     </h3>
-                    <span className="text-xs text-gray-500 dark:text-gray-400">{project.period}</span>
+                    <span className="text-xs text-apple-gray-500">{project.period}</span>
                   </div>
                   
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  <p className="text-apple-gray-600 mb-4">
                     {project.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2 mt-auto">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (
                       <span 
                         key={tag} 
-                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300"
+                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-apple-gray-100 text-apple-gray-700"
                       >
                         <FiCode size={12} className="mr-1" />
                         {tag}
                       </span>
                     ))}
+                  </div>
+                  
+                  {/* Project Links - Now more visible at the bottom of the card */}
+                  <div className="flex gap-3 mt-auto">
+                    {project.github && (
+                      <a 
+                        href={project.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center px-4 py-2 bg-apple-blue-light text-white rounded-lg hover:bg-apple-blue-dark transition-colors"
+                        aria-label="View GitHub Repository"
+                      >
+                        <FiGithub size={18} className="mr-2" />
+                        GitHub
+                      </a>
+                    )}
+                    {project.demo && (
+                      <a 
+                        href={project.demo} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center px-4 py-2 bg-apple-gray-200 text-apple-gray-800 rounded-lg hover:bg-apple-gray-300 transition-colors"
+                        aria-label="View Live Demo"
+                      >
+                        <FiExternalLink size={18} className="mr-2" />
+                        Demo
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -172,14 +202,14 @@ const Projects: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
+          <p className="text-apple-gray-600 mb-6">
             These are just a few of my recent projects. Check out my GitHub for more!
           </p>
           <a 
             href="https://github.com/Bleedingmetal" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 bg-white dark:bg-slate-800 text-gray-800 dark:text-gray-200 font-medium rounded-lg shadow-md hover:shadow-lg border border-gray-200 dark:border-slate-700 transition-all"
+            className="inline-flex items-center px-6 py-3 bg-white text-apple-gray-800 font-medium rounded-lg shadow-md hover:shadow-lg border border-apple-gray-200 transition-all"
           >
             <FiGithub className="mr-2" />
             View More on GitHub
