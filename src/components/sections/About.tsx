@@ -11,7 +11,7 @@ const About: React.FC = () => {
     gpa: "3.8",
   };
 
-  
+
 
   // Languages from resume
   const languages = ["Hindi", "Gujarati", "Tamil", "Telugu"];
@@ -46,7 +46,7 @@ const About: React.FC = () => {
           >
             <div className="glass-effect rounded-2xl p-6 md:p-8 shadow-xl h-full">
               <h3 className="text-2xl font-semibold text-apple-gray-900 mb-4">
-                My Journey
+                Who is Aditya?  {/* I lowkey cooked with this line call me leGoat the way I be dropping these lines(that made no sense)*/}
               </h3>
               
               <div className="space-y-4 text-apple-gray-700">
@@ -71,7 +71,7 @@ const About: React.FC = () => {
 
           {/* Education & Languages */}
           <div className="space-y-6">
-            {/* Education  but only WPI*/}
+            {/* Education  but only WPI I thought of adding ISh but it didnt make sense to coz it wasnt relevant*/}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}

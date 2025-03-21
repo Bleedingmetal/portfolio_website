@@ -19,10 +19,11 @@ const skillsData: Skill[] = [
   { name: 'Node.js', category: 'programming', level: 3, description: 'Backend development and API creation' },
   { name: 'R', category: 'programming', level: 3, description: 'Statistical analysis and data visualization' },
   { name: 'MATLAB', category: 'programming', level: 3, description: 'Numerical computing and algorithm development' },
+  {name: "HTML and CSS", category: "programming", level: 3, description: "Creating HTML and CSS frontend"},
   
   // Concepts
-  { name: 'Machine Learning', category: 'concepts', level: 3, description: 'Neural networks, supervised/unsupervised learning, and model evaluation' },
-  { name: 'NLP', category: 'concepts', level: 3, description: 'Text processing, sentiment analysis, and language models with SpaCy' },
+  { name: 'Machine Learning', category: 'concepts', level: 2, description: 'Neural networks, supervised/unsupervised learning, and model evaluation' },
+  { name: 'NLP', category: 'concepts', level: 2, description: 'Text processing, sentiment analysis, and language models with SpaCy' },
   { name: 'Data Structures', category: 'concepts', level: 5, description: 'Implementation and application of various data structures' },
   { name: 'Algorithms', category: 'concepts', level: 4, description: 'Algorithm design, analysis, and optimization' },
   { name: 'OOP', category: 'concepts', level: 5, description: 'Object-oriented design principles and patterns' },

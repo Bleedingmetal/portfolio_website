@@ -49,7 +49,7 @@ const Header: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="text-xl font-bold text-apple-gray-900"
           >
-            Aditya
+            Aditya Manoj Krishna
           </motion.a>
 
           {/* Desktop Navigation */}

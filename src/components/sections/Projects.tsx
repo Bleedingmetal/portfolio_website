@@ -11,8 +11,10 @@ interface Project {
   github?: string;
   demo?: string;
   period: string;
-  category: 'ai' | 'web' | 'simulation' | 'internship' | 'competition';
+  category: ('ai' | 'web' | 'simulation' | 'internship' | 'competition')[];
 }
+
+{/* for the love of god I need to figure out how to add more catagories to one item or imma have to delete catagories */}
 
 const projectsData: Project[] = [
   {
@@ -21,7 +23,7 @@ const projectsData: Project[] = [
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     tags: ['LangChain', 'LlamaIndex', 'Vector Database', 'NLP', 'Python'],
     period: 'May 2024 - August 2024',
-    category: 'internship'
+    category: ['internship', 'ai']
   },
   {
     title: 'Ex-Inmate Monitoring System',
@@ -29,7 +31,7 @@ const projectsData: Project[] = [
     image: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     tags: ['Backend Development', 'API Design', 'Database Management', 'Security'],
     period: 'June 2022 - August 2022',
-    category: 'internship'
+    category: ['internship' , 'web']
   },
   {
     title: 'MIT Battlecode 2025',
@@ -38,7 +40,7 @@ const projectsData: Project[] = [
     tags: ['Java', 'AI', 'Pathfinding', 'Game Strategy', 'Optimization'],
     github: githubLinks["battlecode"],
     period: 'January 2025',
-    category: 'competition'
+    category: ['competition']
   },
   {
     title: 'Formula 1 AI Chat-Bot',
@@ -47,7 +49,7 @@ const projectsData: Project[] = [
     tags: ['React', 'Next.js', 'Tailwind CSS', 'ChromaDB', 'OpenAI', 'RAG'],
     github: githubLinks["formula1-chatbot"],
     period: 'November 2024',
-    category: 'ai'
+    category: ['ai', 'competition', 'web']
   },
   {
     title: 'Buoyancy Simulator',
@@ -56,12 +58,13 @@ const projectsData: Project[] = [
     tags: ['Python', 'Matplotlib', 'NumPy', 'Pandas', 'Physics Simulation'],
     github: githubLinks["buoyancy-simulator"],
     period: 'October 2022 - December 2022',
-    category: 'simulation'
+    category: ['simulation']
   }
 ];
 
 const Projects: React.FC = () => {
-  const [filter, setFilter] = useState<string>('all');
+  const [filter, setFilter] = useState<'all' | 'ai' | 'web' | 'simulation' | 'internship' | 'competition'>('all');
+
 
   const categories = [
     { id: 'all', name: 'All Projects' },
@@ -73,8 +76,9 @@ const Projects: React.FC = () => {
   ];
 
   const filteredProjects = filter === 'all' 
-    ? projectsData 
-    : projectsData.filter(project => project.category === filter);
+  ? projectsData 
+  : projectsData.filter(project => project.category.includes(filter));
+
 
   return (
     <section id="projects" className="py-20 relative overflow-hidden">
@@ -106,7 +110,8 @@ const Projects: React.FC = () => {
           {categories.map((category) => (
             <button
               key={category.id}
-              onClick={() => setFilter(category.id)}
+              onClick={() => setFilter(category.id as 'all' | 'ai' | 'web' | 'simulation' | 'internship' | 'competition')}
+
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === category.id
                   ? 'bg-gradient-to-r from-apple-blue-light to-apple-teal-light text-white shadow-md'
