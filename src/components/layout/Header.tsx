@@ -68,7 +68,7 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Menu Button */}
           <div className="md:hidden flex items-center">
             <motion.button
               initial={{ opacity: 0 }}

@@ -51,7 +51,7 @@ const About: React.FC = () => {
               
               <div className="space-y-4 text-apple-gray-700">
                 <p>
-                  I'm a driven Computer Science student at Worcester Polytechnic Institute with a passion for a Software Engineering, artificial intelligence, and machine learning. My academic journey has equipped me with a strong foundation in both theoretical concepts and practical applications.
+                  I'm a driven Computer Science student at Worcester Polytechnic Institute with a passion for software engineering, artificial intelligence, and machine learning. My academic journey has equipped me with a strong foundation in both theoretical concepts and practical applications.
                 </p>
                 
                 <p>
