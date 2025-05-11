@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # portfolio_website
 =======
 # Getting Started with Create React App
@@ -43,6 +43,10 @@ Instead, it will copy all the configuration files and the transitive dependencie
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## Learn More
+
+To deploy the project you need to use the commands :
+Deploy: npx gh-pages -d build and it should update the site
+To run it I just need to do Build your app: npm run build
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
