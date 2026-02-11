@@ -23,11 +23,11 @@ code {
   }
   
   .section-heading {
-    @apply text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gray-700 to-gray-500 bg-clip-text text-transparent;
+    @apply text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-gray-700 to-gray-500 bg-clip-text text-transparent;
   }
   
   .section-divider {
-    @apply w-24 h-1 bg-gradient-to-r from-gray-700 to-gray-500 mx-auto rounded-full;
+    @apply w-12 h-1 bg-gradient-to-r from-gray-700 to-gray-500 mx-auto rounded-full;
   }
   
   .gradient-bg {

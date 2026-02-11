@@ -10,6 +10,7 @@ interface Project {
   tags: string[];
   github?: string;
   demo?: string;
+  devpost?: string;
   period: string;
   category: ('ai' | 'web' | 'simulation' | 'internship' | 'competition')[];
 }
@@ -17,6 +18,26 @@ interface Project {
 {/* for the love of god I need to figure out how to add more catagories to one item or imma have to delete catagories */}
 
 const projectsData: Project[] = [
+  {
+    title: 'ARena: Shared AR Experience',
+    description: 'A shared AR experience platform for stadiums and live venues using Meta Display Glasses. Spectators see e-sports games brought into vivid reality, projected over the physical field. Implemented an innovative image tracking system using small markers at audience seats to anchor the virtual arena in 3D space, keeping multiple devices perfectly synced in real-time. Enables fans to experience e-sports matches live with the social energy of traditional sports.',
+    image: '/portfolio_website/ARena.jpg',
+    tags: ['Meta XR', 'C++', 'C', 'Python', 'Unity', 'Blender', 'OpenXR', 'AR/VR', '3D Tracking'],
+    github: 'https://github.com/ben-Santana/Arena',
+    demo: 'https://www.youtube.com/watch?v=PHGPq9pHwsA',
+    devpost: 'https://devpost.com/software/arena-a5qyuc',
+    period: '2025',
+    category: ['competition']
+  },
+  {
+    title: 'Brigham & Women\'s Hospital Website',
+    description: 'Led a 10-person team to develop a hospital service prototype with pathfinding, service requests, and map editing. Built core features using the PERN stack, OAuth2 authentication, Google Maps integration, and hands-free navigation with TensorFlow + MediaPipe. Managed cloud deployment using Docker on AWS EC2 with PostgreSQL on RDS.',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    tags: ['React', 'Node.js', 'PostgreSQL', 'Google Maps', 'TensorFlow', 'AWS', 'Docker'],
+    github: 'https://github.com/Bleedingmetal/brigham-womens-website/',
+    period: 'March 2025 - May 2025',
+    category: ['web']
+  },
   {
     title: 'AI Chatbot & Vector Database',
     description: 'Developed an enterprise-grade chatbot at Cognida.ai using LangChain and LlamaIndex. Built a robust ingestion pipeline for document processing and created a vector database for efficient knowledge retrieval.',
@@ -143,7 +164,7 @@ const Projects: React.FC = () => {
                   />
                 </div>
                 
-                <div className="p-6 flex-grow">
+                <div className="p-6 flex-grow flex flex-col">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl font-semibold text-apple-gray-800">
                       {project.title}
@@ -189,13 +210,27 @@ const Projects: React.FC = () => {
                         href={project.demo} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center px-4 py-2 bg-apple-gray-200 text-apple-gray-800 rounded-lg hover:bg-apple-gray-300 transition-colors"
+                        className="flex items-center px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
                         aria-label="View Live Demo"
                       >
                         <span className="mr-2">
                           <FiExternalLink size={18} />
                         </span>
                         Demo
+                      </a>
+                    )}
+                    {project.devpost && (
+                      <a 
+                        href={project.devpost} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center px-4 py-2 bg-apple-gray-200 text-apple-gray-800 rounded-lg hover:bg-apple-gray-300 transition-colors"
+                        aria-label="View on DevPost"
+                      >
+                        <span className="mr-2">
+                          <FiExternalLink size={18} />
+                        </span>
+                        DevPost
                       </a>
                     )}
                   </div>

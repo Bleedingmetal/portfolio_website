@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="py-8 mt-16 relative overflow-hidden">
+    <footer className="py-8 mt-16 relative overflow-hidden bg-gradient-to-b from-white/50 via-white/20 to-gray-50">
       {/* Gradient background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-apple-gray-300 to-transparent opacity-30"></div>

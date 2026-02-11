@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiBriefcase, FiCalendar, FiMapPin } from 'react-icons/fi';
+import { FiBriefcase, FiCalendar, FiMapPin, FiExternalLink } from 'react-icons/fi';
 
 interface ExperienceItem {
   title: string;
@@ -8,9 +8,34 @@ interface ExperienceItem {
   location: string;
   period: string;
   description: string[];
+  publication?: string;
 }
 
 const experienceData: ExperienceItem[] = [
+  {
+    title: 'Research Intern for the DRDO',
+    company: 'LFOVIA, IIT Hyderabad',
+    location: 'Hyderabad, Telangana, India',
+    period: 'May 2025 - August 2025',
+    description: [
+      'Built an in-lab robotic vision prototype from scratch for DRDO\'s biped robot project, covering CAD design, fabrication, embedded control on Arduino and NVIDIA Orin, and vision system integration with mesh network for data relay.',
+      'Evaluated and fine-tuned object detection, segmentation, and NIR models across varied environments to track multiple subjects, identify persons of interest, and detect potentially dangerous objects.',
+      'Built LFOVIA\'s first functional in-lab robot in over two years, enabling on-site testing and accelerating DRDO\'s vision model validation timeline by several months.'
+    ]
+  },
+  {
+    title: 'Research for WPI IQP',
+    company: 'FUNDESTEAM / Worcester Polytechnic Institute',
+    location: 'Panama City, Panama',
+    period: 'August 2025 - October 2025',
+    description: [
+      'Built a full-stack AI tutor for the World Robot Olympiad in collaboration with FUNDESTEAM, using React, TypeScript, Python (Flask), and OpenAI APIs.',
+      'Designed and implemented adaptive logic for personalized robotics and coding guidance.',
+      'Co-authored Bridging Educational Gaps in Panama: AI-Powered Coach for the World Robot Olympiad (2025), a published research paper through WPI\'s Global Projects Program.',
+      'Collaborated with FUNDESTEAM mentors to align the AI system with real competition training and educational goals.'
+    ],
+    publication: 'https://digital.wpi.edu/concern/student_works/5999n819m?locale=en'
+  },
   {
     title: 'Software Development Intern',
     company: 'Cognida.ai',
@@ -30,7 +55,8 @@ const experienceData: ExperienceItem[] = [
     period: 'June 2022 - August 2022',
     description: [
       'Developed backend software for an ex-inmate monitoring watch tracking vitals and location.',
-      'Increased data processing speed and reliability by 67% using parallel processing for sensor input.'
+      'Increased data processing speed and reliability by 67% using parallel processing for sensor input.',
+      'Built and optimized mesh network communication between watches, enabling multi-device coordination for more accurate tracking and improved system reliability.'
     ]
   }
 ];
@@ -112,6 +138,19 @@ const Experience: React.FC = () => {
                         </li>
                       ))}
                     </ul>
+                    {item.publication && (
+                      <div className="mt-4 pt-4 border-t border-apple-gray-200">
+                        <a
+                          href={item.publication}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-apple-blue-light hover:text-apple-blue-dark transition-colors font-medium"
+                        >
+                          <span className="mr-2">View Publication</span>
+                          <FiExternalLink size={16} />
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
 

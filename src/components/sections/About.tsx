@@ -14,7 +14,7 @@ const About: React.FC = () => {
 
 
   // Languages from resume
-  const languages = ["Hindi", "Gujarati", "Tamil", "Telugu"];
+  const languages = ["English", "Hindi", "Gujarati", "Tamil", "Telugu"];
 
   return (
     <section id="about" className="py-20 relative overflow-hidden">
