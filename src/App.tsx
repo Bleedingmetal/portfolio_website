@@ -12,9 +12,9 @@ function App() {
     <ThemeProvider>
       <Layout>
         <Hero />
-        <Experience />
         <About />
         <Projects />
+        <Experience />
         <Skills />
       </Layout>
     </ThemeProvider>

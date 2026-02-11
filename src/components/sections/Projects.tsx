@@ -102,7 +102,7 @@ const Projects: React.FC = () => {
 
 
   return (
-    <section id="projects" className="py-20 relative overflow-hidden">
+    <section id="projects" className="py-20 relative">
       {/* Gradient background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
         <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-gradient-to-tr from-apple-blue-light/10 to-transparent rounded-full blur-3xl" />
