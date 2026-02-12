@@ -1,24 +1,26 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/layout/Layout';
-import Hero from './components/sections/Hero';
-import About from './components/sections/About';
-import Experience from './components/sections/Experience';
-import Skills from './components/sections/Skills';
-import Projects from './components/sections/Projects';
+
+// Import your new Home page and the ProjectDetail page
+import Home from './pages/Home';
+import ProjectDetail from './components/sections/ProjectDetail';
 
 function App() {
-  return (
-    <ThemeProvider>
-      <Layout>
-        <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <Skills />
-      </Layout>
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider>
+            <Layout>
+                <Routes>
+                    {/* With basename set in index.tsx, "/" matches "/portfolio_website/" */}
+                    <Route path="/" element={<Home />} />
+
+                    {/* This matches "/portfolio_website/project/:id" */}
+                    <Route path="/project/:id" element={<ProjectDetail />} />
+                </Routes>
+            </Layout>
+        </ThemeProvider>
+    );
 }
 
 export default App;

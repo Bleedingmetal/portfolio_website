@@ -17,7 +17,7 @@ interface Project {
 
 {/* for the love of god I need to figure out how to add more catagories to one item or imma have to delete catagories */}
 
-const projectsData: Project[] = [
+export const projectsData: Project[] = [
   {
     title: 'ARena: Shared AR Experience',
     description: 'A shared AR experience platform for stadiums and live venues using Meta Display Glasses. Spectators see e-sports games brought into vivid reality, projected over the physical field. Implemented an innovative image tracking system using small markers at audience seats to anchor the virtual arena in 3D space, keeping multiple devices perfectly synced in real-time. Enables fans to experience e-sports matches live with the social energy of traditional sports.',
