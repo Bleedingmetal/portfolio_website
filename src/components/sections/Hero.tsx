@@ -44,34 +44,6 @@ const Hero: React.FC = () => {
             >
               A Computer Science Student at WPI.
             </motion.p>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-wrap gap-4"
-            >
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-gradient-to-r from-apple-blue-light to-apple-teal-light text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all flex items-center"
-              >
-                <svg className="mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 4l-10 10L2 4"/></svg>
-                Contact Me
-              </motion.a>
-              
-              <motion.a
-                href="/resume.pdf"
-                download = "aditya_manoj_resume.pdf"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-white text-apple-gray-800 font-medium rounded-lg shadow-md hover:shadow-lg border border-apple-gray-200 transition-all flex items-center"
-              >
-                <svg className="mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>
-                Resume
-              </motion.a>
-            </motion.div>
           </motion.div>
           
           {/* Profile Image */}

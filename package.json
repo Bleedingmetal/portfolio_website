@@ -7,6 +7,7 @@
   "dependencies": {
     "@types/react-icons": "^2.2.7",
     "framer-motion": "^12.5.0",
+    "gh-pages": "^6.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
@@ -21,6 +22,7 @@
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
+    "@types/gh-pages": "^6",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.2.1",
